@@ -121,6 +121,8 @@ def main():
 
 
     model = Capsule_Net().to(device)
+    if use_cuda:
+        model = model.cuda()
     optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum)
 
     for epoch in range(1, args.epochs + 1):
